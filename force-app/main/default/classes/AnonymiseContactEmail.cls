@@ -1,11 +1,11 @@
-public with sharing class AnonymiseContactEmail implements PostReleaseStep {
+public with sharing class AnonymiseContactEmail implements rdigital.PostReleaseStep {
     
-    public Boolean isApplicable(ReleaseStepContextModel context) {
+    public Boolean isApplicable(rdigital.ReleaseStepContextModel context) {
         AggregateResult result = [SELECT COUNT(Id) contactCount FROM Contact];
         return ((Integer) result.get('contactCount')) > 0;
     }
 
-    public ResultModel execute(ReleaseStepContextModel context) {
+    public rdigital.ResultModel execute(rdigital.ReleaseStepContextModel context) {
         String log = '';
         List<Contact> allContacts = [SELECT Id, Name, Email FROM Contact];
         log += 'found ' + allContacts.size() + ' contact records to update';
@@ -15,7 +15,7 @@ public with sharing class AnonymiseContactEmail implements PostReleaseStep {
         log += '\nchanged emails';
         update allContacts;
         log += '\nupdate statement done';
-        ResultModel result = new ResultModel();
+        rdigital.ResultModel result = new rdigital.ResultModel();
         result.log = 'updated ' + allContacts.size() + ' contacts';
         result.resultText = 'successfully updated' + allContacts.size() + ' contacts';
         return result;
@@ -23,5 +23,9 @@ public with sharing class AnonymiseContactEmail implements PostReleaseStep {
 
     public String getDescription() {
         return 'anonymise emails from all contacts';
+    }
+
+    public String getName() {
+        return AnonymiseContactEmail.class.getName();
     }
 }

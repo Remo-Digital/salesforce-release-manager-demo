@@ -1,1 +1,1 @@
-new MainReleaseManager(new CustomReleaseStepFinder()).postRelease();
+new rdigital.MainReleaseManager(new CustomReleaseStepFinder()).postRelease();
