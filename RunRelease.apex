@@ -1,0 +1,1 @@
+new MainReleaseManager(new CustomReleaseStepFinder()).postRelease();
