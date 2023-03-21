@@ -2,7 +2,8 @@ public with sharing class CustomReleaseStepFinder implements rdigital.ReleaseSte
 
     public List<rdigital.PostReleaseStep> findPostReleaseSteps() {
         return new List<rdigital.PostReleaseStep>{
-            new AnonymiseContactEmail()
+            new AnonymiseContactEmail(),
+            new MarkAsVipAccount()
         };
     }
 }
