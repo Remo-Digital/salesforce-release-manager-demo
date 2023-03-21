@@ -15,7 +15,7 @@ public with sharing class AnonymiseContactEmail implements rdigital.PostReleaseS
 
         rdigital.ResultModel result = new rdigital.ResultModel();
         result.log = 'batch started (id: ' + batchid + ')';
-        result.resultText = 'batch running';
+        result.resultText = 'batch in queue';
         return result;
     }
 
