@@ -11,7 +11,8 @@ jobs:
       - uses: sfdx-actions/setup-sfdx@v1
         with:
           sfdx-auth-url: ${{ secrets.AUTH_SECRET }}
-      - name: sfdx-test-run
+      - name: deploy
         run: |
+           cd ../..
            sfdx force:source:deploy -p force-app/ -l RunLocalTests -w 30
            sfdx force:apex:execute -f scripts/apex/RunRelease.apex
