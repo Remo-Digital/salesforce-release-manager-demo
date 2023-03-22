@@ -13,5 +13,5 @@ jobs:
           sfdx-auth-url: ${{ secrets.AUTH_SECRET }}
       - name: sfdx-test-run
         run: |
-           sfdx force:force:source:deploy -p force-app/ -l RunLocalTests -w 30
+           sfdx force:source:deploy -p force-app/ -l RunLocalTests -w 30
            sfdx force:apex:execute -f scripts/apex/RunRelease.apex
